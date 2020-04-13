@@ -1,1 +1,5 @@
-<p>cities-list works!</p>
+<mat-list>
+    <mat-list-item role="listitem" color="primary" *ngFor="let city of cities">
+        CITY: {{ city.name }}
+    </mat-list-item>
+</mat-list>

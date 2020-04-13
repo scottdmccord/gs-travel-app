@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CITIES } from '../shared/mock-data/cities-mock';
+import { City } from '../shared/models/city.model';
 
 @Component({
   selector: 'app-cities-list',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cities-list.component.scss']
 })
 export class CitiesListComponent implements OnInit {
+  cities = CITIES;
 
   constructor() { }
 

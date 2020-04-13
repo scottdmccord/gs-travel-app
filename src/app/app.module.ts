@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +10,9 @@ import { CitiesListComponent } from './cities-list/cities-list.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -36,7 +38,8 @@ const appRoutes = [
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
