@@ -10,8 +10,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { CitiesListComponent } from './cities-list/cities-list.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes = [
+  { path: '', component: HomeComponent },
   { path: 'map', component: PinMapComponent },
   { path: 'cities', component: CitiesListComponent },
   { path: 'ratings', component: RatingsComponent }
@@ -23,7 +25,8 @@ const appRoutes = [
     PinMapComponent,
     NavBarComponent,
     CitiesListComponent,
-    RatingsComponent
+    RatingsComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(
