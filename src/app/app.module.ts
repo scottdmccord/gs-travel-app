@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PinMapComponent } from './pin-map/pin-map.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -36,6 +37,7 @@ const appRoutes = [
       { enableTracing: true }
     ),
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NoopAnimationsModule,
     MatToolbarModule,
