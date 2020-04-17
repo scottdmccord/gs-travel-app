@@ -3,4 +3,6 @@ export class City {
     name: string;
     country: string;
     didVisit: boolean;
+    lat: number;
+    long: number;
 }

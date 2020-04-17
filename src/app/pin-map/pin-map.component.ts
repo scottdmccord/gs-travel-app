@@ -10,6 +10,9 @@ import Point from 'ol/geom/Point';
 import { Icon, Style } from 'ol/style';
 import { fromLonLat } from 'ol/proj';
 
+import { CITIES } from '../shared/mock-data/cities-mock';
+import { City } from '../shared/models/city.model';
+
 @Component({
   selector: 'app-pin-map',
   templateUrl: './pin-map.component.html',
@@ -17,71 +20,59 @@ import { fromLonLat } from 'ol/proj';
 })
 export class PinMapComponent implements AfterViewInit {
   map: Map;
+  features: Feature[];
 
-  iconFeatureParis: Feature;
-  iconStyleParis: Style;
-
-  iconFeatureBerlin: Feature;
-  iconStyleBerlin: Style;
+  rasterLayer: TileLayer = new TileLayer({
+    source: new XYZ({
+      url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    }) 
+  });
 
   constructor() { }
 
   ngAfterViewInit() {
 
-    this.iconFeatureParis = new Feature({
-      geometry: new Point(fromLonLat([2.3522, 48.8566])),
-      name: 'Paris'
-    });
+    this.features = this.buildFeatures(CITIES);
 
-    this.iconStyleParis = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
-      })
-    });
-
-    this.iconFeatureParis.setStyle(this.iconStyleParis);
-
-    this.iconFeatureBerlin = new Feature({
-      geometry: new Point(fromLonLat([13.4050, 52.5200])),
-      name: 'Berlin'
-    });
-
-    this.iconStyleBerlin = new Style({
-      image: new Icon({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
-      })
-    });
-
-    this.iconFeatureBerlin.setStyle(this.iconStyleBerlin);
-
-    var vectorSource = new VectorSource({
-      features: [this.iconFeatureParis, this.iconFeatureBerlin]
-    });
-
-    var vectorLayer = new VectorLayer({
-      source: vectorSource
-    });
-
-    var rasterLayer = new TileLayer({
-      source: new XYZ({
-        url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      }) 
-    });
+    var vectorSource = new VectorSource({ features: this.features });
+    var vectorLayer = new VectorLayer({ source: vectorSource });
 
     this.map = new Map({
       target: 'map',
-      layers: [rasterLayer, vectorLayer],
+      layers: [this.rasterLayer, vectorLayer],
       view: new View({
         center: [813079.7791264898, 5929220.284081122],
         zoom: 4
       })
     });   
+  }
+
+  createIconFeature(city: City): Feature {
+    return new Feature({
+      geometry: new Point(fromLonLat([city.long, city.lat])),
+      name: city.name
+    });
+  }
+
+  createIconStyle(): Style {
+    // TODO: Dynamically decide src depending on if visited
+    return new Style({
+      image: new Icon({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
+      })
+    });
+  }
+
+  buildFeatures(cities: City[]): Feature[] {
+    const style = this.createIconStyle();
+    return cities.map(city => {
+      const feature = this.createIconFeature(city);
+      feature.setStyle(style);
+      return feature;
+    });
   }
 
 }
