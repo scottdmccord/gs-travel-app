@@ -5,5 +5,7 @@ export const CITIES: Array<City> = [
     { id: 2, name: 'Provins', country: 'France', didVisit: true, lat: 48.5601, long: 3.2992 },
     { id: 3, name: 'Brussels', country: 'Belgium', didVisit: false, lat: 50.8503, long: 4.3517 },
     { id: 4, name: 'Berlin', country: 'Germany', didVisit: false, lat: 52.5200, long: 13.4050 },
-    { id: 5, name: 'Perpignan', country: 'France', didVisit: true, lat: 42.6887, long: 2.8948 }
+    { id: 5, name: 'Perpignan', country: 'France', didVisit: true, lat: 42.6887, long: 2.8948 },
+    { id: 6, name: "Fimmvörðuhàls", country: 'Iceland', didVisit: false, lat: 63.6215, long: -19.4410 },
+    { id: 7, name: "New York", country: 'USA', didVisit: true, lat: 40.7128, long: -74.0060 }
 ]

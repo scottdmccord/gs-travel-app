@@ -61,7 +61,7 @@ export class PinMapComponent implements AfterViewInit {
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
-        src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'
+        src: '/assets/images/bigcity_blue_icon.png'
       })
     });
   }
