@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { NgbModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes = [
   { path: '', component: HomeComponent },
@@ -38,7 +39,9 @@ const appRoutes = [
     AppRoutingModule,
     NoopAnimationsModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    NgbModule
+    // NgbPopoverModule
   ],
   providers: [],
   bootstrap: [AppComponent]

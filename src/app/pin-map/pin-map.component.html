@@ -1,4 +1,15 @@
 <div id="pin-map">
-    <div id="map" class="map"></div>
+    <ng-template #popContent let-location="location">{{location}}</ng-template>
+    <div id="map" class="map">
+        <div
+            type="button"
+            #popup="ngbPopover"
+            id="popup"
+            placement="top"
+            triggers="manual"
+            container="body"
+            [ngbPopover]="popContent">
+        </div> 
+    </div>
 </div>
 <h6 class="icon-license">Icons courtesy of: Maps Icons Collection https://mapicons.mapsmarker.com</h6>

@@ -1,7 +1,8 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
+import Overlay from 'ol/Overlay';
 import View from 'ol/View';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import VectorSource from 'ol/source/Vector';
@@ -12,6 +13,7 @@ import { fromLonLat } from 'ol/proj';
 
 import { CITIES } from '../shared/mock-data/cities-mock';
 import { City } from '../shared/models/city.model';
+import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pin-map',
@@ -19,8 +21,12 @@ import { City } from '../shared/models/city.model';
   styleUrls: ['./pin-map.component.scss']
 })
 export class PinMapComponent implements AfterViewInit {
+  @ViewChild('popup') popup: NgbPopover;
+  
   map: Map;
   features: Feature[];
+
+  location: string = "test location"; 
 
   rasterLayer: TileLayer = new TileLayer({
     source: new XYZ({
@@ -44,7 +50,40 @@ export class PinMapComponent implements AfterViewInit {
         center: [813079.7791264898, 5929220.284081122],
         zoom: 4
       })
-    });   
+    });
+
+    var element = document.getElementById('popup');
+
+    var popup = new Overlay({
+      element: element,
+      positioning: 'bottom-center',
+      stopEvent: false,
+      offset: [0, -50]
+    });
+
+
+    element.addEventListener('click', () => console.log("CLICKED"));
+
+    this.map.addOverlay(popup);
+
+    // display popup on click
+    this.map.on('click', function(evt) {
+      var feature = this.map.forEachFeatureAtPixel(evt.pixel,
+        function(feature) {
+          return feature;
+        });
+      if (feature) {
+        var coordinates = feature.getGeometry().getCoordinates();
+        popup.setPosition(coordinates);
+      
+        this.location = feature.get('name');
+
+        this.popup.close();
+        this.popup.open({location: this.location});
+
+      }
+    }.bind(this));
+  
   }
 
   createIconFeature(city: City): Feature {
