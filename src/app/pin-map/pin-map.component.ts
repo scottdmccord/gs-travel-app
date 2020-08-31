@@ -1,5 +1,7 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
+// Open Layers imports
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
 import Overlay from 'ol/Overlay';
@@ -11,9 +13,9 @@ import Point from 'ol/geom/Point';
 import { Icon, Style } from 'ol/style';
 import { fromLonLat } from 'ol/proj';
 
+// Models and Data
 import { CITIES } from '../shared/mock-data/cities-mock';
 import { City } from '../shared/models/city.model';
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-pin-map',
@@ -25,13 +27,12 @@ export class PinMapComponent implements AfterViewInit {
   
   map: Map;
   features: Feature[];
-
-  location: string = "test location"; 
+  location: string; 
 
   rasterLayer: TileLayer = new TileLayer({
     source: new XYZ({
       url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    }) 
+    })
   });
 
   constructor() { }
@@ -61,8 +62,6 @@ export class PinMapComponent implements AfterViewInit {
       offset: [0, -50]
     });
 
-
-    element.addEventListener('click', () => console.log("CLICKED"));
 
     this.map.addOverlay(popup);
 

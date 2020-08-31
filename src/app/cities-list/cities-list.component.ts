@@ -16,3 +16,12 @@ export class CitiesListComponent implements OnInit {
   }
 
 }
+
+
+
+// PLACE WE HAVE NOT BEEN:
+// Map with pins of things we want to do
+
+// PLACE WE HAVE BEEN:
+// Map with pins of things we've done
+// Photo gallery at the bottom (?)
