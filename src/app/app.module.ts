@@ -7,19 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PinMapComponent } from './pin-map/pin-map.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { CitiesListComponent } from './cities-list/cities-list.component';
-import { RouterModule } from '@angular/router';
+import { CitiesListComponent } from './cities/cities-list/cities-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CitiesComponent } from './cities/cities.component';
+import { CityComponent } from './cities/city/city.component';
 
-const appRoutes = [
-  { path: '', component: HomeComponent },
-  { path: 'map', component: PinMapComponent },
-  { path: 'cities', component: CitiesListComponent }
-];
 
 @NgModule({
   declarations: [
@@ -27,10 +23,12 @@ const appRoutes = [
     PinMapComponent,
     NavBarComponent,
     CitiesListComponent,
-    HomeComponent
+    HomeComponent,
+    CitiesComponent,
+    CityComponent
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

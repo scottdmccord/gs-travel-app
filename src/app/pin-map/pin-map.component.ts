@@ -1,7 +1,10 @@
 import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+// Bootstrap Popover
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
-// Open Layers imports
+// Open Layers
 import Feature from 'ol/Feature';
 import Map from 'ol/Map';
 import Overlay from 'ol/Overlay';
@@ -35,7 +38,7 @@ export class PinMapComponent implements AfterViewInit {
     })
   });
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngAfterViewInit() {
 

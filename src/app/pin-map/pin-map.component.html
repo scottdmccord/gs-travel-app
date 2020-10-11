@@ -1,5 +1,5 @@
 <div id="pin-map">
-    <ng-template #popContent let-location="location"><a href="/cities">{{location}}</a></ng-template>
+    <ng-template #popContent let-location="location"><a routerLink="../cities/{{name}}">{{location}}</a></ng-template>
     <div id="map" class="map">
         <div
             type="button"
