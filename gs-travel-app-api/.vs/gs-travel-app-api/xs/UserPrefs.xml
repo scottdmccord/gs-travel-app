@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{CA331E67-E866-40AA-82BF-A56A4AA9221C}|Default">
+  <MonoDevelop.Ide.ItemProperties.gs-travel-app-api FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="gs-travel-app-api/Startup.cs">
+    <Files>
+      <File FileName="gs-travel-app-api/Startup.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="gs-travel-app-api" expanded="True">
+            <Node name="gs-travel-app-api" expanded="True">
+              <Node name="Startup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
