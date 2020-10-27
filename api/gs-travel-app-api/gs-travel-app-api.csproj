@@ -10,31 +10,9 @@
     <Folder Include="Models\" />
     <Folder Include="Database\" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.3" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="obj\gs-travel-app-api.csproj.nuget.g.targets" />
-    <None Include="obj\project.nuget.cache" />
-    <None Include="obj\project.assets.json" />
-    <None Include="obj\gs-travel-app-api.csproj.nuget.dgspec.json" />
-    <None Include="obj\gs-travel-app-api.csproj.nuget.g.props" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.MvcApplicationPartsAssemblyInfo.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.assets.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.csproj.CopyComplete" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.csproj.FileListAbsolute.txt" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.pdb" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.RazorTargetAssemblyInfo.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.AssemblyInfoInputs.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.genruntimeconfig.cache" />
-    <None Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.dll" />
-    <None Include="obj\Debug\netcoreapp3.1\staticwebassets\gs-travel-app-api.StaticWebAssets.xml" />
-    <None Include="obj\Debug\netcoreapp3.1\staticwebassets\gs-travel-app-api.StaticWebAssets.Manifest.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="obj\Debug\netcoreapp3.1\gs-travel-app-api.AssemblyInfo.cs" />
-    <Compile Include="obj\Debug\netcoreapp3.1\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" />
-  </ItemGroup>
+ 
 </Project>
