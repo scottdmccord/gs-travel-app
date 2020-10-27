@@ -48,3 +48,4 @@ Thumbs.db
 # API
 /api/.vs
 /api/gs-travel-app-api/obj
+/api/gs-travel-app-api/bin
