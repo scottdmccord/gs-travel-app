@@ -44,3 +44,8 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# API
+/gs-travel-app-api/gs-travel-app-api/obj/Debug
+/gs-travel-app-api/.vs
+/gs-travel-app-api/gs-travel-app-api/obj

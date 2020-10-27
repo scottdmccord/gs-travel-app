@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS visits;
+
+# USERS TABLE
+
+# LOCATIONS TABLE
+
+CREATE TABLE locations (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(85),
+  country VARCHAR(50),
+  latitude DECIMAL(8,6),
+  longitude DECIMAL(9,6)
+);
+
+# VISITS TABLE
