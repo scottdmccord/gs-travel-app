@@ -1,0 +1,10 @@
+# VISTS DATA
+
+BEGIN;
+INSERT INTO visits VALUES(DEFAULT, 1, 1, true);
+INSERT INTO visits VALUES(DEFAULT, 1, 2, true);
+INSERT INTO visits VALUES(DEFAULT, 1, 3, false);
+INSERT INTO visits VALUES(DEFAULT, 1, 4, false);
+INSERT INTO visits VALUES(DEFAULT, 1, 5, true);
+INSERT INTO visits VALUES(DEFAULT, 1, 6, false);
+END;

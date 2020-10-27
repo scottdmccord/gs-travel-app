@@ -1,3 +1,0 @@
-# LOCATIONS
-
-INSERT INTO locations VALUES(DEFAULT, "Paris", "France", 48.8566, 2.3522);

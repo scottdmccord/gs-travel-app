@@ -3,6 +3,14 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS visits;
 
 # USERS TABLE
+CREATE TABLE users (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(255),
+  password VARCHAR(100),
+  firstName VARCHAR(30),
+  lastName VARCHAR(30)
+);
+
 
 # LOCATIONS TABLE
 
@@ -15,3 +23,10 @@ CREATE TABLE locations (
 );
 
 # VISITS TABLE
+
+CREATE TABLE visits (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  userId INT,
+  locationId INT,
+  didVisit BOOLEAN
+);
