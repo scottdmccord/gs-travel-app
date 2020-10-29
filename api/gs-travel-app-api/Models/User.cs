@@ -20,8 +20,5 @@ namespace gs_travel_app_api.Models
 
     [Required]
     public string LastName { get; set; }
-
-    [Required]
-    public List<int> Visits { get; set; }
   }
 }

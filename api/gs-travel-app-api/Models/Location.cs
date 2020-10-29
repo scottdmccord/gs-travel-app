@@ -15,6 +15,9 @@ namespace gs_travel_app_api.Models
     public string Country { get; set; }
 
     [Required]
-    public Coordinates Coordinates { get; set; }
+    public double Latitude { get; set; }
+
+    [Required]
+    public double Longitude { get; set; }
   }
 }
