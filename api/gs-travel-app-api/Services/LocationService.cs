@@ -10,6 +10,7 @@ namespace gs_travel_app_api.Services
   public class LocationService : ILocationService
   {
     private readonly MariaDbContext _dbContext;
+
     public LocationService(MariaDbContext dbContext)
     {
       _dbContext = dbContext;
