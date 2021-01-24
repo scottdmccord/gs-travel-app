@@ -8,5 +8,7 @@ namespace gs_travel_app_api.Services
   public interface ILocationService
   {
     public Task<IEnumerable<Location>> GetAll();
+
+    public Task<IEnumerable<Location>> Add(Location location);
   }
 }

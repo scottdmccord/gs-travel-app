@@ -9,7 +9,7 @@ namespace gs_travel_app_api.Controllers
 {
   [ApiController]
   [Route("locations")]
-  public class LocationController: ControllerBase
+  public class LocationController : ControllerBase
   {
     private readonly ILocationService _locationService;
 
@@ -19,9 +19,32 @@ namespace gs_travel_app_api.Controllers
     }
 
     [HttpGet]
-    public async Task<IEnumerable<Location>> GetAll()
+    public async Task<IActionResult> GetAll()
     {
-      return await _locationService.GetAll();
+      try
+      {
+        return Ok(await _locationService.GetAll());
+      }
+      catch (Exception exception)
+      {
+        Console.WriteLine($"Error getting locations: {exception.Message}");
+        return StatusCode((int) this.HttpContext.Response.StatusCode, exception.Message);
+      }
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Add(Location location)
+    {
+      try
+      {
+        var addedLocation = await _locationService.Add(location);
+        return Ok(addedLocation);
+      }
+      catch(Exception exception)
+      {
+        Console.WriteLine($"Error adding location: {exception.Message}");
+        return StatusCode(500);
+      }
     }
   }
 }

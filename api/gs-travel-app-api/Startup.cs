@@ -26,17 +26,13 @@ namespace gs_travel_app_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Replace "YourDbContext" with the name of your own DbContext derived class.
             services.AddDbContextPool<MariaDbContext>(
                 dbContextOptions => dbContextOptions
                     .UseMySql(
-                        // Replace with your connection string.
                         Configuration.GetConnectionString("MapContext"),
-                        // Replace with your server version and type.
                         mySqlOptions => mySqlOptions
                             .ServerVersion(new Version(10, 5, 6), ServerType.MariaDb)
                             .CharSetBehavior(CharSetBehavior.NeverAppend))
-                    // Everything from this point on is optional but helps with debugging.
                     .UseLoggerFactory(
                         LoggerFactory.Create(
                             logging => logging

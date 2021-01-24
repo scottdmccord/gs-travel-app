@@ -18,6 +18,17 @@ namespace gs_travel_app_api.Services
 
     public async Task<IEnumerable<Location>> GetAll()
     {
+      Console.WriteLine("Getting locations from the database.");
+      return await _dbContext.Locations.ToListAsync();
+    }
+
+    public async Task<IEnumerable<Location>> Add(Location location)
+    {
+      Console.WriteLine($"Adding location {location.Name} to the database.");
+      _dbContext.Locations.Add(location);
+      _dbContext.SaveChanges();
+
+      // return success or failure (?)
       return await _dbContext.Locations.ToListAsync();
     }
   }
