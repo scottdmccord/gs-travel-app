@@ -33,12 +33,12 @@ namespace gs_travel_app_api.Controllers
     }
 
     [HttpPost]
-    public async Task<IActionResult> Add(Location location)
+    public async Task<IActionResult> Create([FromBody] Location location)
     {
       try
       {
-        var addedLocation = await _locationService.Add(location);
-        return Ok(addedLocation);
+        var createdLocation = await _locationService.Add(location);
+        return Ok(createdLocation);
       }
       catch(Exception exception)
       {

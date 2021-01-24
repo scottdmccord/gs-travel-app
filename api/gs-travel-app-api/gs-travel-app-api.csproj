@@ -11,6 +11,8 @@
     <Folder Include="Database\" />
     <Folder Include="Database\Seeds\" />
     <Folder Include="Services\" />
+    <Folder Include="Models\Requests\" />
+    <Folder Include="Models\Responses\" />
   </ItemGroup>
 
   <ItemGroup>
