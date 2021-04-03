@@ -9,6 +9,6 @@ namespace gs_travel_app_api.Services
   {
     public Task<IEnumerable<Location>> GetAll();
 
-    public Task<IEnumerable<Location>> Add(Location location);
+    public Task<IEnumerable<Location>> Create(Location location);
   }
 }

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using gs_travel_app_api.Database;
 using gs_travel_app_api.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace gs_travel_app_api.Services
 {
@@ -22,7 +22,7 @@ namespace gs_travel_app_api.Services
       return await _dbContext.Locations.ToListAsync();
     }
 
-    public async Task<IEnumerable<Location>> Add(Location location)
+    public async Task<IEnumerable<Location>> Create(Location location)
     {
       Console.WriteLine($"Adding location {location.Name} to the database.");
       _dbContext.Locations.Add(location);

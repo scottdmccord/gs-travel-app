@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using gs_travel_app_api.Models;
 using gs_travel_app_api.Services;
@@ -37,10 +36,10 @@ namespace gs_travel_app_api.Controllers
     {
       try
       {
-        var createdLocation = await _locationService.Add(location);
+        var createdLocation = await _locationService.Create(location);
         return Ok(createdLocation);
       }
-      catch(Exception exception)
+      catch (Exception exception)
       {
         Console.WriteLine($"Error adding location: {exception.Message}");
         return StatusCode(500);
