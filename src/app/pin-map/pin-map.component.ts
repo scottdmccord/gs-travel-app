@@ -19,6 +19,7 @@ import { fromLonLat } from 'ol/proj';
 // Models and Data
 import { CITIES } from '../shared/mock-data/cities-mock';
 import { City } from '../shared/models/city.model';
+import Geometry from 'ol/geom/Geometry';
 
 @Component({
   selector: 'app-pin-map',
@@ -29,10 +30,10 @@ export class PinMapComponent implements AfterViewInit {
   @ViewChild('popup') popup: NgbPopover;
   
   map: Map;
-  features: Feature[];
+  features: Feature<Geometry>[];
   location: string; 
 
-  rasterLayer: TileLayer = new TileLayer({
+  rasterLayer: TileLayer<XYZ> = new TileLayer({
     source: new XYZ({
       url: 'https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     })
@@ -88,7 +89,7 @@ export class PinMapComponent implements AfterViewInit {
   
   }
 
-  createIconFeature(city: City): Feature {
+  createIconFeature(city: City): Feature<Geometry> {
     return new Feature({
       geometry: new Point(fromLonLat([city.long, city.lat])),
       name: city.name
@@ -107,7 +108,7 @@ export class PinMapComponent implements AfterViewInit {
     });
   }
 
-  buildFeatures(cities: City[]): Feature[] {
+  buildFeatures(cities: City[]): Feature<Geometry>[] {
     const style = this.createIconStyle();
     return cities.map(city => {
       const feature = this.createIconFeature(city);
