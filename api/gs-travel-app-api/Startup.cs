@@ -10,6 +10,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using gs_travel_app_api.Database;
 using gs_travel_app_api.Services;
 using gs_travel_app_api.Services.Interfaces;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace gs_travel_app_api
 {
@@ -46,6 +47,11 @@ namespace gs_travel_app_api
               services.AddControllers();
               services.AddScoped<ILocationService, LocationService>();
               services.AddScoped<IVisitService, VisitService>();
+
+              services.AddSpaStaticFiles(configuration =>
+              {
+                configuration.RootPath = "webapp/dist";
+              });
     }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +65,10 @@ namespace gs_travel_app_api
             }
 
             app.UseHttpsRedirection();
+            if (!env.IsDevelopment())
+            {
+              app.UseSpaStaticFiles();
+            }
 
             app.UseRouting();
 
@@ -67,6 +77,19 @@ namespace gs_travel_app_api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpa(spa =>
+            {
+              // To learn more about options for serving an Angular SPA from ASP.NET Core,
+              // see https://go.microsoft.com/fwlink/?linkid=864501
+
+              spa.Options.SourcePath = "webapp";
+
+              if (env.IsDevelopment())
+              {
+                spa.UseAngularCliServer(npmScript: "start");
+              }
             });
         }
     }
