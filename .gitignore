@@ -52,4 +52,4 @@ Thumbs.db
 /api/.vs
 
 #package-lock
-*package-lock.josn
+package-lock.json
