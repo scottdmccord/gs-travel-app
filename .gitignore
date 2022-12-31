@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-/node_modules
+*node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -49,3 +49,7 @@ Thumbs.db
 # api
 /api/gs-travel-app-api/bin
 /api/gs-travel-app-api/obj
+/api/.vs
+
+#package-lock
+*package-lock.josn
