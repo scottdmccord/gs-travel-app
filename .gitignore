@@ -32,7 +32,7 @@ speed-measure-plugin*.json
 .history/*
 
 # misc
-/api/gs-travel-app-api/webapp/.angular/cache
+/application/gs-travel-app/webapp/.angular/cache
 /.sass-cache
 /connect.lock
 /coverage
@@ -46,10 +46,13 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# api
-/api/gs-travel-app-api/bin
-/api/gs-travel-app-api/obj
-/api/.vs
+# application
+/application/gs-travel-app/webapp/.angular
+/application/gs-travel-app/bin
+/application/gs-travel-app/obj
+/application/.vs
+
+
 
 #package-lock
 package-lock.json

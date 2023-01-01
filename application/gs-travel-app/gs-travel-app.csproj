@@ -20,6 +20,7 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    <None Remove="NSwag.MSBuild" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
@@ -72,13 +73,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.0" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+    <PackageReference Include="NSwag.MSBuild" Version="13.18.2" />
+
   </ItemGroup>
- 
-  <ItemGroup>
-    <None Remove="Swashbuckle.AspNetCore" />
-    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
-    <None Remove="Swashbuckle.AspNetCore.Swagger" />
-    <None Remove="Swashbuckle.AspNetCore.SwaggerGen" />
-    <None Remove="Microsoft.OpenApi" />
-  </ItemGroup>
+    <Target Name="NSwag" AfterTargets="Build">
+    <Exec Command="$(NSwagExe_Core31) run nswag.json /variables:Configuration=$(Configuration)" />
+  </Target>
+
 </Project>
